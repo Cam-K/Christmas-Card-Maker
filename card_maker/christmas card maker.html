@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+    <title>Holiday Card Maker</title>
+    
+    <script>
+	
+	
+	
+	</script>
+    
+    <style>
+			
+	
+		#container {
+			width: 750px;
+			background-color:#090;
+			padding: 20px;
+			border: 5px solid #F00;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#container h1 {
+			font-family: Tahoma, Geneva, sans-serif;
+			color: #F00;	
+		}
+		
+		#card {
+			width: 750px;
+			margin-left: auto;
+			padding: 20px;
+			margin-right: auto;
+			height: 525px;
+			
+			
+		}
+	
+		p {
+			text-align: center;
+				
+		}
+		
+		h1 {
+			text-align: center;
+			
+			
+		}
+		
+		
+		label, form {
+			text-align: center;	
+		}
+	
+		body {
+			background:url(images/snowflakes.png);
+		}
+		
+		label {
+			display: block;
+			margin-top: 25px;
+			margin-bottom: 5px;
+			font-family:Tahoma, Geneva, sans-serif;
+			
+		}
+		
+		.imageleft {
+			float: left;
+			margin-right: 20px;
+		}
+		
+		.imageright {
+			float: right;
+			margin-left: 20px;
+			
+		}
+	</style>
+    
+    <script>
+	 function myFunction(){
+		 
+		 
+			var outputGreet = document.myForm.greeting.value;	
+			var outputHeader = document.myForm.header.value;
+			var outputTo = document.myForm.to.value;
+			var outputFrom = document.myForm.from.value;
+			var outputColour = document.myForm.colour.value;
+			var outputBrColour = document.myForm.BrColour.value;
+			var outputFColour = document.myForm.FColour.value;
+			var outputBorder = document.myForm.border.value;
+			var outputFontSize = document.myForm.theRange.value;
+			var outputFont = document.myForm.font.value;
+			
+			
+			
+			document.getElementById("card").style.backgroundColor = outputColour;
+			document.getElementById("card").style.color = outputFColour;
+			document.getElementById("card").style.border = outputBorder +"px solid" + outputBrColour;
+			document.getElementById("card").style.fontSize = outputFontSize +"px";
+			
+			if(document.getElementById("gift").checked){
+				document.getElementById("card").innerHTML = '<img src="images/gift.png" width="100"/>' + '<img src="images/gift.png" width="100" class = "imageright"/>' + "<h1>"+outputHeader+"</h1>" + "<p>"+outputGreet+"</p><br>" + "<p>To: "+outputTo+"</p>" +"<p>From: " +outputFrom +'<img src="images/gift.png" width="100" class = "imageleft"/>' + '<img src="images/gift.png" width="100" class = "imageright"/>'
+				
+			} else if(document.getElementById("bells").checked){
+				document.getElementById("card").innerHTML = '<img src="images/bell.jpg" width="100"/>' + '<img src="images/bell.jpg" width="100" class = "imageright"/>' + "<h1>"+outputHeader+"</h1>" + "<p>"+outputGreet+"</p><br>" + "<p>To: "+outputTo+"</p>" +"<p>From: " +outputFrom +'<img src="images/bell.jpg" width="100" class = "imageleft"/>' + '<img src="images/bell.jpg" width="100" class = "imageright"/>';
+			} else if(document.getElementById("pengiun").checked){
+				document.getElementById("card").innerHTML = '<img src="images/pengiun.png" width="100"/>' + '<img src="images/pengiun.png" width="100" class = "imageright"/>' + "<h1>"+outputHeader+"</h1>" + "<p>"+outputGreet+"</p><br>" + "<p>To: "+outputTo+"</p>" +"<p>From: " +outputFrom +'<img src="images/pengiun.png" width="100" class = "imageleft"/>' + '<img src="images/pengiun.png" width="100" class = "imageright"/>';
+			}
+			
+			if(document.getElementById("Arial").checked){
+				document.getElementById("card").style.fontFamily = 'Arial, Helvetica, sans-serif'
+			} else if(document.getElementById("Comic Sans MS").checked){
+				document.getElementById("card").style.fontFamily = '"Comic Sans MS", cursive'
+			} else if(document.getElementById("Courier New").checked){
+				document.getElementById("card").style.fontFamily = '"Courier New", Courier, monospace'
+			} else if(document.getElementById("Impact").checked){
+				document.getElementById("card").style.fontFamily = 'Impact, Charcoal, sans-serif'
+			}
+			
+			
+			return false;
+		
+	 }
+	</script>
+</head>
+
+<body>
+
+	<div id="container">
+    
+    <h1> Welcome to the Holiday Card Maker!</h1>
+    <form name='myForm' method="post" onSubmit="return myFunction()">
+    
+    	<label for="greeting">Please Type a greeting for the card:</label>
+        <input type="text" name="userGreeting" id="greeting" autofocus>
+        
+        <label for="header">Please type a header for the card:</label>
+        <input type="text" name="userHeader" id="header">
+        
+        <label for="to">Who is this card to?</label>
+        <input type="text" name="userTo" id="to">
+        
+        <label for="from">Who is this card from?</label>
+        <input type="text" name="userFrom" id="from">
+        
+        <label for="colour">What color would you like the background?</label>
+     	<input type="color" name="userColour" id="colour">
+        
+        <label for="BrColour">What color would you like the border? </label>
+        <input type="color" name="userBrColour" id="BrColour">
+        
+        <label for="FColour">What color would you like the font? </label>
+        <input type="color" name="userFColour" id="FColour">
+        
+        <label for="border">How thick would like the borders? (px)</label>
+        <input type="number" name="userNumber" id="border" min="1" max="100">
+        
+        <label for="theRange">How big would you like the font?</label>
+        <input type="range" name="userRange" id="theRange" min="5" max="25">
+        
+        <label for ="font">What font would you like?</label>
+        <input type="radio" name="font" id="Arial" value="Arial">Arial<br>
+        <input type="radio" name="font" id="Comic Sans MS" value="Comic Sans MS">Comic Sans MS <br>
+		<input type="radio" name="font" id="Courier New" value="Courier New">Courier New <br>
+        <input type="radio" name="font" id="Impact" value="Impact">Impact<br>
+        
+        <label for ="photo">What photo would you like?</label>
+        <input type="radio" name="photo" id="gift" value="gift"><img src="images/gift.png" width="50"/>
+        <input type="radio" name="photo" id="bells" value="bells"><img src="images/bell.jpg" width="50"/>
+        <input type="radio" name="photo" id="pengiun" value="pengiun"><img src="images/pengiun.png" width="50"/>
+        
+        <p>
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        </p>
+        
+    </form>
+    
+    
+    </div>
+    <div id="card">
+   
+    </div>
+    
+
+</body>
+</html>
